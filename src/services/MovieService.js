@@ -1,12 +1,18 @@
-import ApiService from './ApiService';
+import ApiService from "./ApiService";
 
 const ENDPOINTS = {
-  MOVIES: '/api/movies'
+  MOVIES: "/api/movies",
+  PAGINATED_MOVIES: "/api/movies/?page="
 };
 
 class MovieService extends ApiService {
-  getMovies = () => {
-    return this.apiClient.get(ENDPOINTS.MOVIES);
+  getMovies = (pageNumber, numOfEl) => {
+    return this.apiClient.get(
+      ENDPOINTS.PAGINATED_MOVIES + `${pageNumber}&elementsPerPage=${numOfEl}`
+    );
+  };
+  getMovie = movieId => {
+    return this.apiClient.get(ENDPOINTS.MOVIES + `/${movieId}`);
   };
 }
 

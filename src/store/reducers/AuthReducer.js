@@ -1,5 +1,5 @@
-import { AUTH_USER } from '../actions/ActionTypes';
-import AuthService from '../../services/AuthService';
+import { AUTH_USER } from "../actions/ActionTypes";
+import AuthService from "../../services/AuthService";
 
 const authReducer = (state = AuthService.isAuthenticated(), action) => {
   switch (action.type) {

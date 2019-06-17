@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-
-import { logIn } from '../../store/actions/AuthActions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { logIn } from "../../store/actions/AuthActions";
 
 class Login extends Component {
   state = {
-    email: '',
-    password: ''
+    email: "",
+    password: ""
   };
 
-  handleInputChange = field => event => this.setState({ [field]: event.target.value });
+  handleInputChange = field => event =>
+    this.setState({ [field]: event.target.value });
 
   submit = event => {
     event.preventDefault();
@@ -31,15 +31,17 @@ class Login extends Component {
             type="text"
             placeholder="Email"
             value={this.state.email}
-            onChange={this.handleInputChange('email')}
+            onChange={this.handleInputChange("email")}
           />
           <input
             type="password"
             placeholder="Password"
             value={this.state.password}
-            onChange={this.handleInputChange('password')}
+            onChange={this.handleInputChange("password")}
           />
+
           <input type="submit" value="Log in" />
+
           {this.props.loginError && <p>Login error</p>}
         </form>
       </div>

@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import { ConnectedRouter } from 'connected-react-router';
-import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
+import React, { Component } from "react";
+import { ConnectedRouter } from "connected-react-router";
+import { Provider } from "react-redux";
+import history from "./history";
 
-import './App.css';
-import AppLayout from './component/AppLayout';
-import store from './store/Store';
-import './styles/css/bootstrap.min.css';
-
-const history = createHistory();
+import "./App.css";
+import AppLayout from "./component/AppLayout";
+import store from "./store/Store";
+import "./styles/css/bootstrap.min.css";
 
 class App extends Component {
   render() {

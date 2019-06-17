@@ -1,9 +1,9 @@
-import ApiService from './ApiService';
+import ApiService from "./ApiService";
 
 const ENDPOINTS = {
-  LOGIN: '/api/auth/login',
-  REGISTER: '/api/auth/register',
-  LOGOUT: '/logout'
+  LOGIN: "/api/auth/login",
+  REGISTER: "/api/auth/register",
+  LOGOUT: "/logout"
 };
 
 class AuthService extends ApiService {
@@ -27,19 +27,19 @@ class AuthService extends ApiService {
     const token = this.getToken();
     if (token) {
       this.api.attachHeaders({
-        Authorization: `Bearer ${token.access_token}`
+        Authorization: `Bearer ${token}`
       });
     }
   };
 
   createSession = user => {
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
     this.setAuthorizationHeader();
   };
 
   destroySession = () => {
     localStorage.clear();
-    this.api.removeHeaders(['Authorization']);
+    this.api.removeHeaders(["Authorization"]);
   };
 
   login = async loginData => {
@@ -61,25 +61,25 @@ class AuthService extends ApiService {
   };
 
   getToken = () => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem("user");
     return user ? JSON.parse(user).access_token : undefined;
   };
 
   isAuthenticated = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user && user.access_token ? true : false;
+    const user = JSON.parse(localStorage.getItem("user"));
+    return !!(user && user.access_token);
   };
 
   getUser = () => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem("user");
     return JSON.parse(user);
   };
 
   updateUserInStorage = property => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem("user");
     let jsonUser = JSON.parse(user);
     jsonUser = { ...jsonUser, ...property };
-    localStorage.setItem('user', JSON.stringify(jsonUser));
+    localStorage.setItem("user", JSON.stringify(jsonUser));
   };
 }
 
