@@ -7,12 +7,13 @@ export function* moviesGet({ payload }) {
     const { data } = yield call(
       movieService.getMovies,
       payload.pageNumber,
-      payload.elementsPerPage
+      payload.elementsPerPage,
+      payload.title
     );
-
+    console.log(data);
     yield put(setMovies(data));
   } catch (error) {
-    console.log({ error }); /*eslint-disable-line*/
+    console.log({ error });
   }
 }
 export function* movieGet({ payload }) {
