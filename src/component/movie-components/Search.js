@@ -1,16 +1,18 @@
 import React from "react";
-import debounce from "lodash.debounce";
-
+import { debounce } from "lodash";
 class Search extends React.Component {
   constructor() {
     super();
     this.state = {
-      srchInput: ""
+      searchInput: ""
     };
+  }
+  componentDidMount() {
+    this.search = debounce(this.getMovies, 750);
   }
   getMovies = () => {
     this.props.fetchMovies(
-      this.state.srchInput,
+      this.state.searchInput,
       this.props.pageNumber,
       this.props.perPage
     );
@@ -19,11 +21,10 @@ class Search extends React.Component {
     event.preventDefault();
     const { value } = event.target;
     this.setState({
-      srchInput: value
+      searchInput: value
     });
     this.search();
   };
-  search = debounce(this.getMovies, 750);
 
   render() {
     return (
@@ -32,7 +33,7 @@ class Search extends React.Component {
           type="text"
           onChange={this.handleInputChange}
           placeholder="Search"
-          value={this.state.srchInput}
+          value={this.state.searchInput}
         />
         <br />
       </div>

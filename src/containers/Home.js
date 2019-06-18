@@ -16,11 +16,14 @@ class Home extends Component {
     });
     this.createHistory(title, pageNumber, elementsPerPage);
   }
-  createHistory(title, pageNumber, elementsPerPage) {
+  createHistory(title, pageNumber = 1, elementsPerPage = 5) {
     this.props.history.push(
       `/home/?page=${pageNumber}&elementsPerPage=${elementsPerPage}&title=${title}`
     );
   }
+  handleFetchMovies = (title, pageNumber, elementsPerPage) => {
+    this.fetchMovies(title, pageNumber, elementsPerPage);
+  };
   componentDidMount() {
     const params = new URLSearchParams(this.props.location.search);
     this.fetchMovies(
@@ -55,9 +58,7 @@ class Home extends Component {
         <Search
           perPage={this.props.perPage}
           pageNumber={this.props.activePage}
-          fetchMovies={(title, pageNumber, elementsPerPage) =>
-            this.fetchMovies(title, pageNumber, elementsPerPage)
-          }
+          fetchMovies={this.handleFetchMovies}
         />
         {this.renderMovies()}
         <br />

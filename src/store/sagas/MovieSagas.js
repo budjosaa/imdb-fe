@@ -10,7 +10,6 @@ export function* moviesGet({ payload }) {
       payload.elementsPerPage,
       payload.title
     );
-    console.log(data);
     yield put(setMovies(data));
   } catch (error) {
     console.log({ error });

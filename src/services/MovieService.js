@@ -16,7 +16,7 @@ class MovieService extends ApiService {
     });
   };
   getMovie = movieId => {
-    return this.apiClient.get(ENDPOINTS.MOVIES + `/${movieId}`);
+    return this.apiClient.get(`${ENDPOINTS.MOVIES}/${movieId}`);
   };
 }
 
