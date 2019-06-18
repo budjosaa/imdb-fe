@@ -15,6 +15,7 @@ class SinglePageMovie extends React.Component {
       <div>
         <h1>{this.props.singleMovie.title}</h1>
         <p>{this.props.singleMovie.description}</p>
+        <p>Number of visits: {this.props.singleMovie.times_visited}</p>
         <button onClick={this.goBack}>Back</button>
       </div>
     );
