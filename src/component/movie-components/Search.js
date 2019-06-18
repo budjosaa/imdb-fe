@@ -10,6 +10,9 @@ class Search extends React.Component {
   componentDidMount() {
     this.search = debounce(this.getMovies, 750);
   }
+  componentWillUnmount() {
+    this.search.cancel();
+  }
   getMovies = () => {
     this.props.fetchMovies(
       this.state.searchInput,
@@ -38,9 +41,6 @@ class Search extends React.Component {
         <br />
       </div>
     );
-  }
-  componentWillUnmount() {
-    this.search.cancel();
   }
 }
 
