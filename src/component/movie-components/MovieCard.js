@@ -12,7 +12,7 @@ const MovieCard = props => {
         ellipsis="..."
       />
       <br />
-      <p>Number of visits: {this.props.singleMovie.times_visited}</p>
+      <p>Number of visits: {props.movie.times_visited}</p>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getMovie } from "../store/actions/MovieActions";
+import { getMovie } from "../../store/actions/MovieActions";
 
 class SinglePageMovie extends React.Component {
   goBack = () => {

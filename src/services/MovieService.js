@@ -6,13 +6,17 @@ const ENDPOINTS = {
 };
 
 class MovieService extends ApiService {
-  getMovies = (pageNumber, numOfEl) => {
-    return this.apiClient.get(
-      ENDPOINTS.PAGINATED_MOVIES + `${pageNumber}&elementsPerPage=${numOfEl}`
-    );
+  getMovies = (pageNumber, numOfEl, title) => {
+    return this.apiClient.get(ENDPOINTS.MOVIES, {
+      params: {
+        page: pageNumber,
+        elementsPerPage: numOfEl,
+        title: title
+      }
+    });
   };
   getMovie = movieId => {
-    return this.apiClient.get(ENDPOINTS.MOVIES + `/${movieId}`);
+    return this.apiClient.get(`${ENDPOINTS.MOVIES}/${movieId}`);
   };
 }
 

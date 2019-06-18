@@ -10,7 +10,7 @@ import NavBar from "./NavBar";
 import { authUser } from "../store/actions/AuthActions";
 
 import PrivateRoute from "../component/PrivateRoute";
-import SinglePageMovie from "../component/SinglePageMovie";
+import SinglePageMovie from "../component/movie-components/SinglePageMovie";
 class AppLayout extends React.Component {
   render() {
     return (
@@ -24,7 +24,12 @@ class AppLayout extends React.Component {
         <Route exact path="/" component={NavBar} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route exact path="/movie/:id" component={SinglePageMovie} />
+        <PrivateRoute
+          exact
+          path="/movie/:id"
+          user={this.props.user}
+          component={SinglePageMovie}
+        />
       </div>
     );
   }

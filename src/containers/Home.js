@@ -3,16 +3,34 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
 import { getMovies } from "../store/actions/MovieActions";
-import MovieCard from "../component/MovieCard";
+import MovieCard from "../component/movie-components/MovieCard";
 import Pagination from "react-js-pagination";
+import Search from "../component/movie-components/Search";
 
 class Home extends Component {
+  fetchMovies(title, pageNumber, elementsPerPage) {
+    this.props.getMovies({
+      pageNumber,
+      title,
+      elementsPerPage
+    });
+    this.createHistory(title, pageNumber, elementsPerPage);
+  }
+  createHistory(title, pageNumber = 1, elementsPerPage = 5) {
+    this.props.history.push(
+      `/home/?page=${pageNumber}&elementsPerPage=${elementsPerPage}&title=${title}`
+    );
+  }
+  handleFetchMovies = (title, pageNumber, elementsPerPage) => {
+    this.fetchMovies(title, pageNumber, elementsPerPage);
+  };
   componentDidMount() {
     const params = new URLSearchParams(this.props.location.search);
-    this.props.getMovies({
-      pageNumber: params.get("page") || 1,
-      elementsPerPage: params.get("elementsPerPage") || 5
-    });
+    this.fetchMovies(
+      "",
+      params.get("page") || 1,
+      params.get("elementsPerPage") || 5
+    );
   }
 
   renderMovies = () => {
@@ -25,12 +43,10 @@ class Home extends Component {
   };
   handlePageChange = pageNumber => {
     const params = new URLSearchParams(this.props.location.search);
-    this.props.getMovies({
-      pageNumber: pageNumber,
-      elementsPerPage: params.get("elementsPerPage")
-    });
-    this.props.history.push(
-      `/home/?page=${pageNumber}&elementsPerPage=${this.props.perPage}`
+    this.fetchMovies(
+      params.get("title"),
+      pageNumber,
+      params.get("elementsPerPage")
     );
   };
 
@@ -39,6 +55,11 @@ class Home extends Component {
       <div>
         <p>Welcome to Pocket IMDb</p>
         <h4>Movies</h4>
+        <Search
+          perPage={this.props.perPage}
+          pageNumber={this.props.activePage}
+          fetchMovies={this.handleFetchMovies}
+        />
         {this.renderMovies()}
         <br />
         <Pagination
