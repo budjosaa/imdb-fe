@@ -10,7 +10,6 @@ import NavBar from "./NavBar";
 import { authUser } from "../store/actions/AuthActions";
 
 import PrivateRoute from "../component/PrivateRoute";
-// import SinglePageMovie from "../component/movie-components/SinglePageMovie";
 import SinglePageMovie from "../component/movie-components/SinglePageMovie";
 class AppLayout extends React.Component {
   render() {

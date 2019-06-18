@@ -12,6 +12,8 @@ const MovieCard = props => {
         ellipsis="..."
       />
       <br />
+      <p>Number of visits: {props.movie.times_visited}</p>
+      <br />
     </div>
   );
 };
