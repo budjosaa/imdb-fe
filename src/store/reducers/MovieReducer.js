@@ -1,4 +1,4 @@
-import { SET_MOVIES, SET_MOVIE } from "../actions/ActionTypes";
+import { SET_MOVIES, SET_MOVIE, SET_NEW_MOVIE } from "../actions/ActionTypes";
 
 const initialState = {
   data: [],
@@ -21,6 +21,16 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         singleMovie: action.payload
+      };
+    case SET_NEW_MOVIE:
+      const likedMovie = action.payload;
+      const newMovies = state.data.map(movie => {
+        return movie.id !== likedMovie.id ? movie : likedMovie;
+      });
+      return {
+        ...state,
+        data: newMovies,
+        singleMovie: likedMovie
       };
     default:
       return state;

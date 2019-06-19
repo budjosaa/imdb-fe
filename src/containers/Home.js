@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import { getMovies } from "../store/actions/MovieActions";
 import MovieCard from "../component/movie-components/MovieCard";
@@ -8,6 +8,14 @@ import Pagination from "react-js-pagination";
 import Search from "../component/movie-components/Search";
 
 class Home extends Component {
+  componentDidMount() {
+    const params = new URLSearchParams(this.props.location.search);
+    this.fetchMovies(
+      "",
+      params.get("page") || 1,
+      params.get("elementsPerPage") || 5
+    );
+  }
   fetchMovies(title, pageNumber, elementsPerPage) {
     this.props.getMovies({
       pageNumber,
@@ -24,21 +32,10 @@ class Home extends Component {
   handleFetchMovies = (title, pageNumber, elementsPerPage) => {
     this.fetchMovies(title, pageNumber, elementsPerPage);
   };
-  componentDidMount() {
-    const params = new URLSearchParams(this.props.location.search);
-    this.fetchMovies(
-      "",
-      params.get("page") || 1,
-      params.get("elementsPerPage") || 5
-    );
-  }
 
   renderMovies = () => {
     return this.props.movies.map(movie => (
-      <div key={movie.id}>
-        <MovieCard key={movie.id} movie={movie} />
-        <Link to={`/movie/${movie.id}`}> Link to movie! </Link>
-      </div>
+      <MovieCard key={movie.id} movie={movie} />
     ));
   };
   handlePageChange = pageNumber => {
