@@ -1,6 +1,6 @@
 import React from "react";
 import LinesEllipsis from "react-lines-ellipsis";
-import ReactionComponent from "./ReactionComponent";
+import ReactionsComponent from "./ReactionsComponent";
 import { Link } from "react-router-dom";
 
 const MovieCard = props => {
@@ -17,7 +17,7 @@ const MovieCard = props => {
       <p>Number of visits: {props.movie.times_visited}</p>
       <p>Likes:{props.movie.num_of_likes}</p>
       <p>Dislikes:{props.movie.num_of_dislikes}</p>
-      <ReactionComponent movieId={props.movie.id} />
+      <ReactionsComponent movieId={props.movie.id} />
       <Link to={`/movie/${props.movie.id}`}> Link to movie! </Link>
       <br />
     </div>

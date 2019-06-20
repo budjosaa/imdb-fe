@@ -2,10 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { likeMovie } from "../../store/actions/MovieActions";
-import Like from "./Reactions/Like";
-import Dislike from "./Reactions/Dislike";
+import Reaction from "./Reactions/Reaction";
 
-class ReactionComponet extends React.Component {
+class ReactionsComponet extends React.Component {
   reactOnMovie(movieId, reaction) {
     this.props.likeMovie({
       movieId,
@@ -18,8 +17,8 @@ class ReactionComponet extends React.Component {
   render() {
     return (
       <div>
-        <Like reactOnMovie={this.handleReactOnMovie} />
-        <Dislike reactOnMovie={this.handleReactOnMovie} />
+        <Reaction type="like" reactOnMovie={this.handleReactOnMovie} />
+        <Reaction type="dislike" reactOnMovie={this.handleReactOnMovie} />
       </div>
     );
   }
@@ -31,5 +30,5 @@ export default withRouter(
   connect(
     null,
     mapDispatchToProps
-  )(ReactionComponet)
+  )(ReactionsComponet)
 );
