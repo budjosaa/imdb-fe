@@ -18,6 +18,11 @@ class MovieService extends ApiService {
   getMovie = movieId => {
     return this.apiClient.get(`${ENDPOINTS.MOVIES}/${movieId}`);
   };
+  likeMovie = (movieId, reaction) => {
+    return this.apiClient.post(`${ENDPOINTS.MOVIES}/${movieId}/like`, {
+      reaction: reaction
+    });
+  };
 }
 
 export const movieService = new MovieService();

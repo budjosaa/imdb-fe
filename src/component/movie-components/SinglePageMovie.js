@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getMovie } from "../../store/actions/MovieActions";
+import ReactionsComponent from "./ReactionsComponent";
 
 class SinglePageMovie extends React.Component {
   goBack = () => {
@@ -16,6 +17,9 @@ class SinglePageMovie extends React.Component {
         <h1>{this.props.singleMovie.title}</h1>
         <p>{this.props.singleMovie.description}</p>
         <p>Number of visits: {this.props.singleMovie.times_visited}</p>
+        <p>Likes:{this.props.singleMovie.num_of_likes}</p>
+        <p>Dislikes:{this.props.singleMovie.num_of_dislikes}</p>
+        <ReactionsComponent movieId={this.props.match.params.id} />
         <button onClick={this.goBack}>Back</button>
       </div>
     );
