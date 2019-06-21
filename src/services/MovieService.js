@@ -2,16 +2,18 @@ import ApiService from "./ApiService";
 
 const ENDPOINTS = {
   MOVIES: "/api/movies",
-  PAGINATED_MOVIES: "/api/movies/?page="
+  PAGINATED_MOVIES: "/api/movies/?page=",
+  GENRES: "/api/genres"
 };
 
 class MovieService extends ApiService {
-  getMovies = (pageNumber, numOfEl, title) => {
+  getMovies = (pageNumber, numOfEl, title, genreId) => {
     return this.apiClient.get(ENDPOINTS.MOVIES, {
       params: {
         page: pageNumber,
         elementsPerPage: numOfEl,
-        title: title
+        title,
+        genreId
       }
     });
   };
@@ -22,6 +24,9 @@ class MovieService extends ApiService {
     return this.apiClient.post(`${ENDPOINTS.MOVIES}/${movieId}/like`, {
       reaction: reaction
     });
+  };
+  getGenres = () => {
+    return this.apiClient.get(ENDPOINTS.GENRES);
   };
 }
 

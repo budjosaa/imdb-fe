@@ -14,3 +14,6 @@ export const GET_MOVIE = "GET_MOVIE";
 
 export const LIKE_MOVIE = "LIKE_MOVIE";
 export const SET_NEW_MOVIE = "SET_NEW_MOVIE";
+
+export const GET_GENRES = "GET_GENRES";
+export const SET_GENRES = "SET_GENRES";

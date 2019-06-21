@@ -17,7 +17,8 @@ class Search extends React.Component {
     this.props.fetchMovies(
       this.state.searchInput,
       this.props.pageNumber,
-      this.props.perPage
+      this.props.perPage,
+      this.props.genre
     );
   };
   handleInputChange = event => {
