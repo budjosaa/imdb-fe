@@ -1,11 +1,17 @@
-import { SET_MOVIES, SET_MOVIE, SET_NEW_MOVIE } from "../actions/ActionTypes";
+import {
+  SET_MOVIES,
+  SET_MOVIE,
+  SET_NEW_MOVIE,
+  SET_GENRES
+} from "../actions/ActionTypes";
 
 const initialState = {
   data: [],
   activePage: 0,
   total: 0,
   singleMovie: {},
-  per_page: 0
+  per_page: 0,
+  genres: []
 };
 const movieReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -31,6 +37,11 @@ const movieReducer = (state = initialState, action) => {
         ...state,
         data: newMovies,
         singleMovie: likedMovie
+      };
+    case SET_GENRES:
+      return {
+        ...state,
+        genres: action.payload
       };
     default:
       return state;

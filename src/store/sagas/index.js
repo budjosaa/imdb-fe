@@ -4,10 +4,11 @@ import {
   REGISTER,
   GET_MOVIES,
   GET_MOVIE,
-  LIKE_MOVIE
+  LIKE_MOVIE,
+  GET_GENRES
 } from "../actions/ActionTypes";
 import { userLogin, userRegister } from "./AuthSagas";
-import { moviesGet, movieGet, movieLike } from "./MovieSagas";
+import { moviesGet, movieGet, movieLike, genresGet } from "./MovieSagas";
 
 export default function* rootSaga() {
   yield all([
@@ -15,6 +16,7 @@ export default function* rootSaga() {
     takeLatest(REGISTER, userRegister),
     takeLatest(GET_MOVIES, moviesGet),
     takeLatest(GET_MOVIE, movieGet),
-    takeLatest(LIKE_MOVIE, movieLike)
+    takeLatest(LIKE_MOVIE, movieLike),
+    takeLatest(GET_GENRES, genresGet)
   ]);
 }

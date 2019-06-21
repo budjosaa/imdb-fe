@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { likeMovie } from "../../store/actions/MovieActions";
 import Reaction from "./Reactions/Reaction";
 
-class ReactionsComponet extends React.Component {
+class ReactionsComponent extends React.Component {
   reactOnMovie(movieId, reaction) {
     this.props.likeMovie({
       movieId,
@@ -30,5 +30,5 @@ export default withRouter(
   connect(
     null,
     mapDispatchToProps
-  )(ReactionsComponet)
+  )(ReactionsComponent)
 );
