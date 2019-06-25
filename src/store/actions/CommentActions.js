@@ -1,8 +1,8 @@
 import {
   GET_COMMENTS,
   SET_COMMENTS,
-  CREATE_COMMENT,
-  REQUEST_ADD_COMMENT
+  REQUEST_ADD_COMMENT,
+  ADD_COMMENT
 } from "./ActionTypes";
 
 export const getComments = payload => {
@@ -19,13 +19,13 @@ export const setComments = payload => {
 };
 export const createComment = payload => {
   return {
-    type: CREATE_COMMENT,
+    type: REQUEST_ADD_COMMENT,
     payload
   };
 };
 export const addComment = payload => {
   return {
-    type: REQUEST_ADD_COMMENT,
+    type: ADD_COMMENT,
     payload
   };
 };

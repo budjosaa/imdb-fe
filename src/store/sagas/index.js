@@ -7,7 +7,7 @@ import {
   LIKE_MOVIE,
   GET_GENRES,
   GET_COMMENTS,
-  CREATE_COMMENT
+  REQUEST_ADD_COMMENT
 } from "../actions/ActionTypes";
 import { userLogin, userRegister } from "./AuthSagas";
 import { moviesGet, movieGet, movieLike, genresGet } from "./MovieSagas";
@@ -22,6 +22,6 @@ export default function* rootSaga() {
     takeLatest(LIKE_MOVIE, movieLike),
     takeLatest(GET_GENRES, genresGet),
     takeLatest(GET_COMMENTS, commentsGet),
-    takeLatest(CREATE_COMMENT, commentCreate)
+    takeLatest(REQUEST_ADD_COMMENT, commentCreate)
   ]);
 }
