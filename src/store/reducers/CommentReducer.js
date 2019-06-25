@@ -13,10 +13,9 @@ const commentReducer = (state = initialState, action) => {
       };
     case ADD_COMMENT:
       const newComment = action.payload;
-      const newComennts = state.comments.push(newComment);
+      const comments = [...state.comments, newComment];
       return {
-        ...state,
-        comment: newComennts
+        comments
       };
     default:
       return state;

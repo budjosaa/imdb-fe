@@ -1,10 +1,10 @@
 import React from "react";
 
-function Comment(props) {
+function Comment({ comment }) {
   return (
     <div>
-      <p>{props.comment.user.name}:</p>
-      <p>{props.comment.content}</p>
+      <p>{comment.user.name}:</p>
+      <p>{comment.content}</p>
     </div>
   );
 }
