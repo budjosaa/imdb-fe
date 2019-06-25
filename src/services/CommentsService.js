@@ -11,7 +11,7 @@ class CommentsService extends ApiService {
   createComment = (content, movieId) => {
     return this.apiClient.post(
       `${ENDPOINTS.COMMENTS}${movieId}/comments/create`,
-      content
+      { content }
     );
   };
 }
