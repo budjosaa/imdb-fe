@@ -5,10 +5,13 @@ import {
   GET_MOVIES,
   GET_MOVIE,
   LIKE_MOVIE,
-  GET_GENRES
+  GET_GENRES,
+  GET_COMMENTS,
+  REQUEST_ADD_COMMENT
 } from "../actions/ActionTypes";
 import { userLogin, userRegister } from "./AuthSagas";
 import { moviesGet, movieGet, movieLike, genresGet } from "./MovieSagas";
+import { commentsGet, commentCreate } from "./CommentSagas";
 
 export default function* rootSaga() {
   yield all([
@@ -17,6 +20,8 @@ export default function* rootSaga() {
     takeLatest(GET_MOVIES, moviesGet),
     takeLatest(GET_MOVIE, movieGet),
     takeLatest(LIKE_MOVIE, movieLike),
-    takeLatest(GET_GENRES, genresGet)
+    takeLatest(GET_GENRES, genresGet),
+    takeLatest(GET_COMMENTS, commentsGet),
+    takeLatest(REQUEST_ADD_COMMENT, commentCreate)
   ]);
 }

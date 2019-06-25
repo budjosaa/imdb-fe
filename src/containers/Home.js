@@ -15,7 +15,7 @@ class Home extends Component {
       "",
       params.get("page") || 1,
       params.get("elementsPerPage") || 5,
-      params.get("genre")
+      params.get("genre") || ""
     );
   }
   fetchMovies(title, pageNumber, elementsPerPage, genre) {
