@@ -1,7 +1,10 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getComments } from "../../../store/actions/CommentActions";
+import {
+  getComments,
+  deleteComment
+} from "../../../store/actions/CommentActions";
 import Comment from "./Comment";
 
 class CommentsList extends React.Component {
@@ -10,9 +13,22 @@ class CommentsList extends React.Component {
       movieId: this.props.match.params.id
     });
   }
+  deleteComment(movieId) {
+    this.props.deleteComment({
+      movieId
+    });
+  }
+  handleDeleteMovie = movieId => {
+    this.deleteComment(movieId);
+  };
+  handle;
   renderComments = () => {
     return this.props.comments.map(comment => (
-      <Comment key={comment.id} comment={comment} />
+      <Comment
+        deleteComment={this.handleDeleteMovie}
+        key={comment.id}
+        comment={comment}
+      />
     ));
   };
   render() {
@@ -30,7 +46,8 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = {
-  getComments
+  getComments,
+  deleteComment
 };
 export default withRouter(
   connect(

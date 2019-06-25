@@ -14,5 +14,10 @@ class CommentsService extends ApiService {
       { content }
     );
   };
+  deleteComment = movieId => {
+    return this.apiClient.delete(
+      `${ENDPOINTS.COMMENTS}comments/${movieId}/delete`
+    );
+  };
 }
 export const commentsService = new CommentsService();
