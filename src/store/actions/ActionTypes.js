@@ -17,3 +17,9 @@ export const SET_NEW_MOVIE = "SET_NEW_MOVIE";
 
 export const GET_GENRES = "GET_GENRES";
 export const SET_GENRES = "SET_GENRES";
+
+export const GET_COMMENTS = "GET_COMMENTS";
+export const SET_COMMENTS = "SET_COMMENTS";
+
+export const CREATE_COMMENT = "CREATE_COMMENT";
+export const ADD_COMMENT = "ADD_COMMENT";
