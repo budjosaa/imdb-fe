@@ -4,12 +4,9 @@ import { connect } from "react-redux";
 import { createComment } from "../../../store/actions/CommentActions";
 
 class AddComment extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      content: ""
-    };
-  }
+  state = {
+    content: ""
+  };
   handleChange = event => {
     const { value } = event.target;
     this.setState({
