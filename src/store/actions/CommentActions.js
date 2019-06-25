@@ -2,7 +2,7 @@ import {
   GET_COMMENTS,
   SET_COMMENTS,
   CREATE_COMMENT,
-  ADD_COMMENT
+  REQUEST_ADD_COMMENT
 } from "./ActionTypes";
 
 export const getComments = payload => {
@@ -25,7 +25,7 @@ export const createComment = payload => {
 };
 export const addComment = payload => {
   return {
-    type: ADD_COMMENT,
+    type: REQUEST_ADD_COMMENT,
     payload
   };
 };

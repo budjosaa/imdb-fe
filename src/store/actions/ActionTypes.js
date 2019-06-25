@@ -22,4 +22,4 @@ export const GET_COMMENTS = "GET_COMMENTS";
 export const SET_COMMENTS = "SET_COMMENTS";
 
 export const CREATE_COMMENT = "CREATE_COMMENT";
-export const ADD_COMMENT = "ADD_COMMENT";
+export const REQUEST_ADD_COMMENT = "REQUEST_ADD_COMMENT";
