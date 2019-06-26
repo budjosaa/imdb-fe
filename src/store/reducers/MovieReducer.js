@@ -2,7 +2,8 @@ import {
   SET_MOVIES,
   SET_MOVIE,
   SET_NEW_MOVIE,
-  SET_GENRES
+  SET_GENRES,
+  ADD_MOVIE
 } from "../actions/ActionTypes";
 
 const initialState = {
@@ -42,6 +43,12 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         genres: action.payload
+      };
+    case ADD_MOVIE:
+      const movies = [...state.data, action.payload];
+      return {
+        ...state,
+        data: movies
       };
     default:
       return state;

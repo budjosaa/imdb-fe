@@ -7,6 +7,7 @@ import MovieCard from "../component/movie-components/MovieCard";
 import Pagination from "react-js-pagination";
 import Search from "../component/movie-components/Search";
 import GenresList from "../component/movie-components/GenresList";
+import AddMovie from "../component/movie-components/AddMovie";
 
 class Home extends Component {
   componentDidMount() {
@@ -56,6 +57,7 @@ class Home extends Component {
       <div>
         <p>Welcome to Pocket IMDb</p>
         <h4>Movies</h4>
+        <AddMovie />
         <GenresList
           title={new URLSearchParams(this.props.location.search).get("title")}
           perPage={this.props.perPage}

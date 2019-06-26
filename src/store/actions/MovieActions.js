@@ -6,7 +6,9 @@ import {
   LIKE_MOVIE,
   SET_NEW_MOVIE,
   GET_GENRES,
-  SET_GENRES
+  SET_GENRES,
+  ADD_MOVIE,
+  REQUEST_ADD_MOVIE
 } from "./ActionTypes";
 
 export const getMovies = payload => {
@@ -56,6 +58,18 @@ export const getGenres = payload => {
 export const setGenres = payload => {
   return {
     type: SET_GENRES,
+    payload
+  };
+};
+export const createMovie = payload => {
+  return {
+    type: REQUEST_ADD_MOVIE,
+    payload
+  };
+};
+export const addMovie = payload => {
+  return {
+    type: ADD_MOVIE,
     payload
   };
 };
