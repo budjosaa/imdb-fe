@@ -1,15 +1,15 @@
 import React from "react";
 
-function Comment(props) {
-  function deleteComment() {
-    props.deleteComment(props.comment.id);
+const Comment = ({ comment, deleteComment }) => {
+  function removeComment() {
+    deleteComment(comment.id);
   }
   return (
     <div>
-      <p>{props.comment.user.name}:</p>
-      <p>{props.comment.content}</p>
-      <button onClick={deleteComment}>X</button>
+      <p>{comment.user.name}:</p>
+      <p>{comment.content}</p>
+      <button onClick={removeComment}>X</button>
     </div>
   );
-}
+};
 export default Comment;
