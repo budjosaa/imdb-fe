@@ -2,7 +2,9 @@ import {
   GET_COMMENTS,
   SET_COMMENTS,
   REQUEST_ADD_COMMENT,
-  ADD_COMMENT
+  ADD_COMMENT,
+  DELETE_COMMENT,
+  REQUEST_DELETE_COMMENT
 } from "./ActionTypes";
 
 export const getComments = payload => {
@@ -26,6 +28,18 @@ export const createComment = payload => {
 export const addComment = payload => {
   return {
     type: ADD_COMMENT,
+    payload
+  };
+};
+export const deleteComment = payload => {
+  return {
+    type: REQUEST_DELETE_COMMENT,
+    payload
+  };
+};
+export const removeCommentFromRedux = payload => {
+  return {
+    type: DELETE_COMMENT,
     payload
   };
 };

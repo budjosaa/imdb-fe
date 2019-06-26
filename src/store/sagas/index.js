@@ -7,11 +7,12 @@ import {
   LIKE_MOVIE,
   GET_GENRES,
   GET_COMMENTS,
-  REQUEST_ADD_COMMENT
+  REQUEST_ADD_COMMENT,
+  REQUEST_DELETE_COMMENT
 } from "../actions/ActionTypes";
 import { userLogin, userRegister } from "./AuthSagas";
 import { moviesGet, movieGet, movieLike, genresGet } from "./MovieSagas";
-import { commentsGet, commentCreate } from "./CommentSagas";
+import { commentsGet, commentCreate, commentDelete } from "./CommentSagas";
 
 export default function* rootSaga() {
   yield all([
@@ -22,6 +23,7 @@ export default function* rootSaga() {
     takeLatest(LIKE_MOVIE, movieLike),
     takeLatest(GET_GENRES, genresGet),
     takeLatest(GET_COMMENTS, commentsGet),
-    takeLatest(REQUEST_ADD_COMMENT, commentCreate)
+    takeLatest(REQUEST_ADD_COMMENT, commentCreate),
+    takeLatest(REQUEST_DELETE_COMMENT, commentDelete)
   ]);
 }

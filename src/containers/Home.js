@@ -12,7 +12,7 @@ class Home extends Component {
   componentDidMount() {
     const params = new URLSearchParams(this.props.location.search);
     this.fetchMovies(
-      "",
+      params.get("title") || "",
       params.get("page") || 1,
       params.get("elementsPerPage") || 5,
       params.get("genre") || ""
