@@ -8,7 +8,7 @@ export function* sugestedMoviesGet({ payload }) {
       thirdPartyService.searchForMovies,
       payload.title
     );
-    yield put(setThirdApiMovies(data));
+    yield put(setThirdApiMovies(data.results));
   } catch (err) {
     console.log(err);
   }

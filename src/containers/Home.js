@@ -58,6 +58,7 @@ class Home extends Component {
         <p>Welcome to Pocket IMDb</p>
         <h4>Movies</h4>
         <AddMovie />
+        <br />
         <GenresList
           title={new URLSearchParams(this.props.location.search).get("title")}
           perPage={this.props.perPage}

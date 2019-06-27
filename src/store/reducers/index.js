@@ -13,6 +13,6 @@ export default history =>
     error: errorReducer,
     movie: movieReducer,
     comment: commentReducer,
-    sugestions: thirdPartyApiReducer,
+    suggestions: thirdPartyApiReducer,
     router: connectRouter(history)
   });
