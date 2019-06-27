@@ -5,6 +5,7 @@ import authReducer from "./AuthReducer";
 import errorReducer from "./ErrorReducer";
 import movieReducer from "./MovieReducer";
 import commentReducer from "./CommentReducer";
+import thirdPartyApiReducer from "./ThirdPartyApiReducer";
 
 export default history =>
   combineReducers({
@@ -12,5 +13,6 @@ export default history =>
     error: errorReducer,
     movie: movieReducer,
     comment: commentReducer,
+    sugestions: thirdPartyApiReducer,
     router: connectRouter(history)
   });

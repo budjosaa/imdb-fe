@@ -28,6 +28,14 @@ class MovieService extends ApiService {
   getGenres = () => {
     return this.apiClient.get(ENDPOINTS.GENRES);
   };
+  createMovie = payload => {
+    const { title, description, image_url } = payload;
+    return this.apiClient.post(ENDPOINTS.MOVIES, {
+      title,
+      description,
+      image_url
+    });
+  };
 }
 
 export const movieService = new MovieService();

@@ -4,7 +4,8 @@ import {
   setMovies,
   setMovie,
   setNewMovies,
-  setGenres
+  setGenres,
+  addMovie
 } from "../actions/MovieActions";
 
 export function* moviesGet({ payload }) {
@@ -45,6 +46,14 @@ export function* genresGet({ payload }) {
   try {
     const { data } = yield call(movieService.getGenres);
     yield put(setGenres(data));
+  } catch (err) {
+    console.log(err);
+  }
+}
+export function* movieCreate({ payload }) {
+  try {
+    const { data } = yield call(movieService.createMovie, payload);
+    yield put(addMovie(data));
   } catch (err) {
     console.log(err);
   }
